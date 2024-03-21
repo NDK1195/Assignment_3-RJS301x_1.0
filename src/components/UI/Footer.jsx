@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="bg-[#111] py-14 tracking-wide">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex flex-col justify-between gap-3 px-3 sm:flex-row sm:items-center">
         <div>
           <h3 className="mb-5 text-2xl uppercase tracking-wider text-[#dee0dc]">
             Customer Services
