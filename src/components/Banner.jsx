@@ -3,7 +3,7 @@ import banner from "../assets/banner1.jpg";
 export default function Banner() {
   const navigate = useNavigate();
   return (
-    <div className="relative">
+    <div className="relative mt-5">
       <img src={banner} alt="banner" />
       <div className="absolute left-[15%] top-1/2 -translate-y-1/2 md:w-1/4">
         <p className="text-lg font-light uppercase tracking-wider text-[#aaa] md:mb-2 lg:text-xl">

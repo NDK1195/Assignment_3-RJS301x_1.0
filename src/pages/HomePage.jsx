@@ -1,12 +1,13 @@
 import Banner from "../components/Banner";
 import Categories from "../components/Category/Categories";
+import ProductListHome from "../components/Products/ProductListHome";
 
 export default function HomePage() {
   return (
     <>
-      <h1>HomePage</h1>
       <Banner />
       <Categories />
+      <ProductListHome />
     </>
   );
 }
