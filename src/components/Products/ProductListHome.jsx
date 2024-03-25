@@ -11,10 +11,10 @@ export default function ProductListHome() {
       <p className="font-light uppercase tracking-wider text-[#aaa] lg:text-lg">
         made the hard way
       </p>
-      <p className="text-xl uppercase tracking-wider md:mb-4 lg:text-3xl">
+      <p className="mb-4 text-xl uppercase tracking-wider lg:text-3xl">
         top trending products
       </p>
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid gap-5 md:grid-cols-4">
         {loadData.map((product) => (
           <ProductItem
             key={product.id}

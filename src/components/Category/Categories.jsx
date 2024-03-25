@@ -11,7 +11,7 @@ export default function Categories() {
       <p className="font-light uppercase tracking-wider text-[#aaa] lg:text-lg">
         carefully created collections
       </p>
-      <p className="text-xl uppercase tracking-wider md:mb-4 lg:text-3xl">
+      <p className="mb-4 text-xl uppercase tracking-wider lg:text-3xl">
         browse our categories
       </p>
       <div className="grid gap-3 md:grid-cols-6 md:grid-rows-2">
