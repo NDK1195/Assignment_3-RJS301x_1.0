@@ -13,7 +13,16 @@
     font-style: italic;
   }
 }
+.btn {
+  @apply cursor-pointer bg-[#383838] font-light text-white hover:bg-[#474747] hover:text-[--color-primary];
+}
 
 .active {
   @apply text-[--color-primary];
+}
+.backdrop {
+  @apply fixed left-0 top-0 z-10 h-screen w-full bg-[#383838] opacity-10;
+}
+.popup {
+  @apply fixed left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 bg-white;
 }

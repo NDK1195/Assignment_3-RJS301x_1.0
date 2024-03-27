@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import banner from "../assets/banner1.jpg";
+import banner from "../../assets/banner1.jpg";
 export default function Banner() {
   const navigate = useNavigate();
   return (
@@ -13,7 +13,7 @@ export default function Banner() {
           20% off on new season
         </p>
         <button
-          className="bg-[#383838] px-6 py-2 text-lg font-light italic text-white hover:text-[--color-primary]"
+          className="btn px-6 py-2 text-lg italic"
           onClick={() => navigate("/shop")}
         >
           Browse collections

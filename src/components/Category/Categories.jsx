@@ -7,7 +7,7 @@ import product5 from "../../assets/product_5.png";
 
 export default function Categories() {
   return (
-    <div className="mb-5 mt-10 text-center">
+    <div className="container mx-auto mb-5 mt-10 text-center">
       <p className="font-light uppercase tracking-wider text-[#aaa] lg:text-lg">
         carefully created collections
       </p>
