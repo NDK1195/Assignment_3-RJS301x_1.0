@@ -17,7 +17,8 @@
   @apply cursor-pointer bg-[#383838] font-light text-white hover:bg-[#474747] hover:text-[--color-primary];
 }
 
-.active {
+.active,
+.transitioning {
   @apply text-[--color-primary];
 }
 .backdrop {

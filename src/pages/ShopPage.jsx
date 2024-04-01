@@ -1,3 +1,9 @@
+import Banner from "../components/UI/Banner";
+
 export default function ShopPage() {
-  return <div>ShopPage</div>;
+  return (
+    <>
+      <Banner page="Shop" />
+    </>
+  );
 }

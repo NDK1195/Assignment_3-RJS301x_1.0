@@ -5,7 +5,7 @@ export default function ProductListHome() {
   const data = useLoaderData();
   // get first 8 products
   const loadData = data.slice(0, 8);
-  console.log(loadData);
+
   return (
     <>
       <div className="container mx-auto mb-5 mt-10">

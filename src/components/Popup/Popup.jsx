@@ -16,6 +16,7 @@ export default function Popup() {
   return (
     <>
       <div className="backdrop" onClick={handleClosePopup}></div>
+      {/* backdrop */}
       <div className="popup">
         <p className="pr-5 pt-5 text-right">
           <span
