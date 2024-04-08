@@ -10,17 +10,15 @@ export default function ProductItem(props) {
   const dispatch = useDispatch();
 
   function handleShowPopup() {
-    if (product.id !== props.id) {
-      dispatch(
-        popupActions.SHOW_POPUP({
-          id: props.id,
-          img: props.img,
-          name: props.name,
-          price: props.price,
-          desc: props.desc,
-        }),
-      );
-    }
+    dispatch(
+      popupActions.SHOW_POPUP({
+        id: props.id,
+        img: props.img,
+        name: props.name,
+        price: props.price,
+        desc: props.desc,
+      }),
+    );
     return;
   }
 
@@ -28,7 +26,7 @@ export default function ProductItem(props) {
     <>
       {isShowPopup ? <Popup /> : null}
       <div
-        className="flex cursor-pointer flex-col items-center justify-center gap-3 transition hover:opacity-70"
+        className="flex cursor-pointer flex-col items-center justify-center gap-3 transition hover:opacity-60"
         onClick={handleShowPopup}
       >
         <img src={props.img} alt="product image" className="mb-2" />
