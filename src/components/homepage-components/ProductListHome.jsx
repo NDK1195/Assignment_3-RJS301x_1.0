@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
-import ProductItem from "./ProductItem";
+import ProductItem from "../Products/ProductItem";
+import ProductList from "../Products/ProductList";
 
 export default function ProductListHome() {
   const data = useLoaderData();
@@ -16,16 +17,7 @@ export default function ProductListHome() {
           top trending products
         </p>
         <div className="grid gap-5 md:grid-cols-4">
-          {loadData.map((product) => (
-            <ProductItem
-              key={product["_id"].$oid}
-              id={product["_id"].$oid}
-              img={product.img1}
-              name={product.name}
-              price={product.price}
-              desc={product["short_desc"]}
-            />
-          ))}
+          <ProductList data={loadData} />
         </div>
       </div>
     </>

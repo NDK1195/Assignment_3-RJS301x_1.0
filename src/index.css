@@ -7,6 +7,8 @@
 @layer base {
   :root {
     --color-primary: #e7ca8e;
+    --color-secondary: #f4f5f9;
+    --color-text-primary: #aaa;
   }
   html {
     font-family: "Open Sans", sans-serif;
@@ -17,8 +19,7 @@
   @apply cursor-pointer bg-[#383838] font-light text-white hover:bg-[#474747] hover:text-[--color-primary];
 }
 
-.active,
-.transitioning {
+.active {
   @apply text-[--color-primary];
 }
 .backdrop {

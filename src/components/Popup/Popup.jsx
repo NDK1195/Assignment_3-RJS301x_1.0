@@ -27,7 +27,7 @@ export default function Popup() {
           </span>
         </p>
         {/* close icon */}
-        <div className="flex justify-between gap-5 px-3 pb-3">
+        <div className="flex justify-between gap-5 px-3 pb-5">
           <div className="hidden lg:block lg:basis-1/2">
             <img src={product.img} alt="Product image" />
           </div>
@@ -37,7 +37,9 @@ export default function Popup() {
             <p className="pb-1 font-light text-[#aaa] lg:text-lg">
               {price} VND
             </p>
-            <p className="pb-3 font-light text-[#aaa]">{product.desc}</p>
+            <p className="pb-4 font-light tracking-wide text-[#aaa]">
+              {product.desc}
+            </p>
             <button
               className="btn flex items-center gap-2 px-6 py-2"
               onClick={() => {

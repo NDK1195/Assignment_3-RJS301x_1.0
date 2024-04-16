@@ -6,7 +6,7 @@ export default function ProductItem(props) {
   const price = new Intl.NumberFormat("vi-VN").format(props.price);
 
   const isShowPopup = useSelector((state) => state.popup.isShow);
-  const product = useSelector((state) => state.popup.product);
+
   const dispatch = useDispatch();
 
   function handleShowPopup() {
