@@ -4,7 +4,7 @@ export default function CategoryItem(props) {
   const navigate = useNavigate();
   return (
     <div
-      className={`cursor-pointer rounded transition hover:opacity-70 ${props.className}`}
+      className={`cursor-pointer rounded transition hover:opacity-70 ${props.className} show`}
       onClick={() => navigate("/shop")}
     >
       <img src={props.src} alt="Category Image" className="w-full rounded" />

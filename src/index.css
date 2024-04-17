@@ -23,8 +23,21 @@
   @apply text-[--color-primary];
 }
 .backdrop {
-  @apply fixed left-0 top-0 z-10 h-screen w-full bg-[#383838] opacity-10;
+  @apply fixed left-0 top-0 z-10 h-screen w-full bg-[#383838] opacity-30;
 }
 .popup {
   @apply fixed left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 bg-white;
+}
+
+@keyframes show {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.show {
+  animation: show 0.5s ease-in-out;
 }

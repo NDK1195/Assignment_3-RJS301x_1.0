@@ -33,6 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: <ShopPage />,
+        loader: loader,
       },
       {
         path: "/detail/:productId",

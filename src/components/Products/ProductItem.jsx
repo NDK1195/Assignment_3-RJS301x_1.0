@@ -1,11 +1,8 @@
 import { popupActions } from "../../store/popupSlice";
-import Popup from "../Popup/Popup";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function ProductItem(props) {
   const price = new Intl.NumberFormat("vi-VN").format(props.price);
-
-  const isShowPopup = useSelector((state) => state.popup.isShow);
 
   const dispatch = useDispatch();
 
@@ -24,9 +21,8 @@ export default function ProductItem(props) {
 
   return (
     <>
-      {isShowPopup ? <Popup /> : null}
       <div
-        className="flex cursor-pointer flex-col items-center justify-center gap-3 transition hover:opacity-60"
+        className="show flex cursor-pointer flex-col items-center justify-center gap-3 transition hover:opacity-60 "
         onClick={handleShowPopup}
       >
         <img src={props.img} alt="product image" className="mb-2" />
