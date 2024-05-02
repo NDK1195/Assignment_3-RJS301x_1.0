@@ -7,6 +7,9 @@ export default function ProductItem(props) {
   const dispatch = useDispatch();
 
   function handleShowPopup() {
+    if (!props.popup) {
+      return;
+    }
     dispatch(
       popupActions.SHOW_POPUP({
         id: props.id,

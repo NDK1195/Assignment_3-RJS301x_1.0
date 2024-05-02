@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import ProductItem from "../Products/ProductItem";
+
 import ProductList from "../Products/ProductList";
 
 export default function ProductListHome() {
@@ -17,7 +17,7 @@ export default function ProductListHome() {
           top trending products
         </p>
         <div className="grid gap-5 md:grid-cols-4">
-          <ProductList data={loadData} />
+          <ProductList data={loadData} popup={true} />
         </div>
       </div>
     </>

@@ -4,13 +4,7 @@ const popupSlice = createSlice({
   name: "popup",
   initialState: {
     isShow: false,
-    product: {
-      id: "",
-      img: "",
-      name: "",
-      price: "",
-      desc: "",
-    },
+    product: {},
   },
   reducers: {
     SHOW_POPUP: (state, action) => {

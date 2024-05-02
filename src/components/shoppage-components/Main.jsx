@@ -1,8 +1,20 @@
-import { useLoaderData } from "react-router-dom";
+import { useSelector } from "react-redux";
 import ProductList from "../Products/ProductList";
+import { useLoaderData } from "react-router-dom";
 
 export default function Main() {
   const data = useLoaderData();
+  const category = useSelector((state) => state.category.category);
+
+  let renderData = [];
+  if (category === "all") {
+    renderData = [...data];
+  } else {
+    renderData = data.filter((product) => {
+      return category === product.category;
+    });
+  }
+
   return (
     <>
       <div className="w-full">
@@ -20,7 +32,11 @@ export default function Main() {
         </div>
         {/* Search & sort */}
         <div className="my-5 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          <ProductList data={data} />
+          {renderData.length < 1 ? (
+            <p className=" text-2xl">No product found</p>
+          ) : (
+            <ProductList data={renderData} />
+          )}
         </div>
         {/* Product list */}
         <div className="mb-5 text-right">

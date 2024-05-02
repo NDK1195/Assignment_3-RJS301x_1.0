@@ -8,7 +8,10 @@ export default function NavBar() {
           <NavLink to="/" className="text-lg hover:text-[--color-primary]">
             Home
           </NavLink>
-          <NavLink to="/shop" className="text-lg hover:text-[--color-primary]">
+          <NavLink
+            to="/shop?category=all"
+            className="text-lg hover:text-[--color-primary]"
+          >
             Shop
           </NavLink>
         </div>

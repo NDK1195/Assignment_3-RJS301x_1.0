@@ -11,6 +11,7 @@ export default function ProductList(props) {
           name={product.name}
           price={product.price}
           desc={product["short_desc"]}
+          popup={props.popup}
         />
       ))}
     </>
