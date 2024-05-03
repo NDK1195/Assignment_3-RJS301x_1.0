@@ -1,41 +1,41 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import ProductList from "../Products/ProductList";
 import { useLoaderData } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import { categoryActions } from "../../store/categorySlice";
+import { useEffect, useState } from "react";
 
 export default function Main() {
-  const selectRef = useRef();
   const data = useLoaderData();
-  const dispatch = useDispatch();
+
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
   const category = useSelector((state) => state.category.category);
-  const sortValue = useSelector((state) => state.category.sortValue);
-  const products = useSelector((state) => state.category.products);
 
-  let renderData = [];
-  if (category === "all") {
-    renderData = [...data];
-  } else {
-    renderData = data.filter((product) => {
-      return category === product.category;
-    });
-  }
-
-  function handleSortChange() {
-    const selectedValue = selectRef.current.value;
-    if (selectedValue === "asc") {
-      dispatch(categoryActions.setSortValue("asc"));
-    } else if (selectedValue === "desc") {
-      dispatch(categoryActions.setSortValue("desc"));
+  // set products list base on category
+  useEffect(() => {
+    if (category === "all") {
+      setProducts(data);
     } else {
-      dispatch(categoryActions.setSortValue("default"));
+      setProducts(
+        data.filter((product) => {
+          return category === product.category;
+        }),
+      );
     }
-    return;
-  }
+  }, [category]);
 
-  // useEffect(() => {
-  //   dispatch(categoryActions.setProducts(renderData));
-  // }, [renderData, dispatch]);
+  function handleSearchChange(event) {
+    setSearchTerm(event.target.value);
+  }
+  // filter products base on search term with each category
+  useEffect(() => {
+    setFilteredProducts(
+      products.filter((product) => {
+        return product.name.toLowerCase().includes(searchTerm.toLowerCase());
+      }),
+    );
+  }, [searchTerm, products]);
 
   return (
     <>
@@ -45,14 +45,9 @@ export default function Main() {
             type="text"
             placeholder="Enter Search Here!"
             className="appearance-none border px-5 py-2"
+            onChange={handleSearchChange}
           />
-          <select
-            name="sort"
-            id="sort"
-            className="border"
-            ref={selectRef}
-            onChange={handleSortChange}
-          >
+          <select name="sort" id="sort" className="border">
             <option value="default">Default sorting</option>
             <option value="asc">Price: Ascending</option>
             <option value="desc">Price: Descending</option>
@@ -60,10 +55,10 @@ export default function Main() {
         </div>
         {/* Search & sort */}
         <div className="my-5 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {renderData.length < 1 ? (
+          {filteredProducts.length < 1 ? (
             <p className=" text-2xl">No product found</p>
           ) : (
-            <ProductList data={renderData} />
+            <ProductList data={filteredProducts} />
           )}
         </div>
         {/* Product list */}
