@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { categoryActions } from "../../store/categorySlice";
 export default function SideBar() {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ export default function SideBar() {
 
   useEffect(() => {
     dispatch(categoryActions.setCategory(category));
-  }, [category]);
+  }, [category, dispatch]);
 
   return (
     <aside className="lg:w-[20%]">
@@ -17,40 +17,40 @@ export default function SideBar() {
       <ul className="py-3">
         <h3 className="bg-black px-6 py-2 text-white">APPLE</h3>
         <li className="px-6 py-2 text-[--color-text-primary]">
-          <NavLink
+          <Link
             to="?category=all"
-            className={category === "all" ? "active" : ""}
+            className={`hover:text-[--color-primary] ${category === "all" ? "active" : ""}`}
           >
             All
-          </NavLink>
+          </Link>
         </li>
         <ul>
           <h4 className="bg-[--color-secondary] px-6 py-2 font-semibold">
             IPHONE & MAC
           </h4>
           <li className="px-6 py-2 text-[--color-text-primary]">
-            <NavLink
+            <Link
               to="?category=iphone"
-              className={category === "iphone" ? "active" : ""}
+              className={`hover:text-[--color-primary] ${category === "iphone" ? "active" : ""}`}
             >
               IPhone
-            </NavLink>
+            </Link>
           </li>
           <li className="px-6 py-2 text-[--color-text-primary]">
-            <NavLink
+            <Link
               to="?category=ipad"
-              className={category === "ipad" ? "active" : ""}
+              className={`hover:text-[--color-primary] ${category === "ipad" ? "active" : ""}`}
             >
               IPad
-            </NavLink>
+            </Link>
           </li>
           <li className="px-6 py-2 text-[--color-text-primary]">
-            <NavLink
+            <Link
               to="?category=macbook"
-              className={category === "macbook" ? "active" : ""}
+              className={`hover:text-[--color-primary] ${category === "macbook" ? "active" : ""}`}
             >
               Macbook
-            </NavLink>
+            </Link>
           </li>
         </ul>
         <ul>
@@ -58,20 +58,20 @@ export default function SideBar() {
             WIRELESS
           </h4>
           <li className="px-6 py-2 text-[--color-text-primary]">
-            <NavLink
+            <Link
               to="?category=airpod"
-              className={category === "airpod" ? "active" : ""}
+              className={`hover:text-[--color-primary] ${category === "airpod" ? "active" : ""}`}
             >
               Airpod
-            </NavLink>
+            </Link>
           </li>
           <li className="px-6 py-2 text-[--color-text-primary]">
-            <NavLink
+            <Link
               to="?category=watch"
-              className={category === "watch" ? "active" : ""}
+              className={`hover:text-[--color-primary] ${category === "watch" ? "active" : ""}`}
             >
               Watch
-            </NavLink>
+            </Link>
           </li>
         </ul>
         <ul>
@@ -79,28 +79,28 @@ export default function SideBar() {
             OTHER
           </h4>
           <li className="px-6 py-2 text-[--color-text-primary]">
-            <NavLink
+            <Link
               to="?category=mouse"
-              className={category === "mouse" ? "active" : ""}
+              className={`hover:text-[--color-primary] ${category === "mouse" ? "active" : ""}`}
             >
               Mouse
-            </NavLink>
+            </Link>
           </li>
           <li className="px-6 py-2 text-[--color-text-primary]">
-            <NavLink
+            <Link
               to="?category=keyboard"
-              className={category === "keyboard" ? "active" : ""}
+              className={`hover:text-[--color-primary] ${category === "keyboard" ? "active" : ""}`}
             >
               Keyboard
-            </NavLink>
+            </Link>
           </li>
           <li className="px-6 py-2 text-[--color-text-primary]">
-            <NavLink
+            <Link
               to="?category=other"
-              className={category === "other" ? "active" : ""}
+              className={`hover:text-[--color-primary] ${category === "other" ? "active" : ""}`}
             >
               Other
-            </NavLink>
+            </Link>
           </li>
         </ul>
       </ul>

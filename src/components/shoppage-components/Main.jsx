@@ -1,10 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProductList from "../Products/ProductList";
 import { useLoaderData } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { categoryActions } from "../../store/categorySlice";
 
 export default function Main() {
+  const selectRef = useRef();
   const data = useLoaderData();
+  const dispatch = useDispatch();
   const category = useSelector((state) => state.category.category);
+  const sortValue = useSelector((state) => state.category.sortValue);
+  const products = useSelector((state) => state.category.products);
 
   let renderData = [];
   if (category === "all") {
@@ -15,6 +21,22 @@ export default function Main() {
     });
   }
 
+  function handleSortChange() {
+    const selectedValue = selectRef.current.value;
+    if (selectedValue === "asc") {
+      dispatch(categoryActions.setSortValue("asc"));
+    } else if (selectedValue === "desc") {
+      dispatch(categoryActions.setSortValue("desc"));
+    } else {
+      dispatch(categoryActions.setSortValue("default"));
+    }
+    return;
+  }
+
+  // useEffect(() => {
+  //   dispatch(categoryActions.setProducts(renderData));
+  // }, [renderData, dispatch]);
+
   return (
     <>
       <div className="w-full">
@@ -24,7 +46,13 @@ export default function Main() {
             placeholder="Enter Search Here!"
             className="appearance-none border px-5 py-2"
           />
-          <select name="sort" id="sort" className="border">
+          <select
+            name="sort"
+            id="sort"
+            className="border"
+            ref={selectRef}
+            onChange={handleSortChange}
+          >
             <option value="default">Default sorting</option>
             <option value="asc">Price: Ascending</option>
             <option value="desc">Price: Descending</option>
